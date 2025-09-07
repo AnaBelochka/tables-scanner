@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This project implements a **real-time token scanner dashboard** using **Next.js, TypeScript, Zustand, TanStack Table, and WebSocket integration**.
 
-## Getting Started
+## Features
+- 📊 **Two side-by-side tables**:
+    - **Trending Tokens** (sorted by volume)
+    - **New Tokens** (sorted by age)
+- 🔌 **API integration**:
+    - Initial data from REST API (`/scanner`)
+    - Live updates via WebSocket (`scanner-filter`, `pair`, `pair-stats`)
+- ⚡ **Performance**:
+    - Virtualized rows (>1000 rows)
+    - Sticky headers with synchronized column widths
+- 🎨 **UI/UX**:
+    - Dark theme with alternating row backgrounds
+    - Right-aligned numeric columns
+    - Compact number formatting (K / M / B)
+    - Audit indicators (mintable, freezable, honeypot, burned, verified)
+    - Social link icons (Twitter, Telegram, Discord, Website)
+- 🔄 **Real-time updates**:
+    - Dynamic recalculation of market cap on each tick
+    - Liquidity and audit fields updated from `pair-stats` events
+- 🧩 **Additional**:
+    - Skeleton loaders, error states, and empty states
+    - Modular architecture with reusable hooks and components
 
-First, run the development server:
+## Tech Stack
+- [Next.js](https://nextjs.org/) (App Router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Zustand](https://github.com/pmndrs/zustand) for state management
+- [TanStack Table](https://tanstack.com/table) + [TanStack Virtual](https://tanstack.com/virtual) for performant tables
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [lucide-react](https://lucide.dev/) for icons
 
+## Running locally
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
